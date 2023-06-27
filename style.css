@@ -24,7 +24,7 @@ body {
   justify-content: center;
   align-items: center;
 }
-.difficulty .difficulty__box {
+.difficulty__box {
   width: 480px;
   height: 459px;
   flex-shrink: 0;
@@ -34,7 +34,7 @@ body {
   flex-direction: column;
   align-items: center;
 }
-.difficulty .difficulty__box .difficulty__box_text {
+.difficulty__box_text {
   color: #004980;
   text-align: center;
   font-size: 40px;
@@ -42,14 +42,14 @@ body {
   line-height: 48px;
   padding-top: 52px;
 }
-.difficulty .difficulty__box .difficulty__box_difficulst {
+.difficulty__box_difficulst {
   display: flex;
   flex-direction: row;
   justify-content: center;
   padding-top: 48px;
   gap: 24px;
 }
-.difficulty .difficulty__box .difficulty__box_difficulst .difficulty__box_choice {
+.difficulty__box_choice {
   display: flex;
   width: 97px;
   height: 98px;
@@ -64,7 +64,7 @@ body {
   border-radius: 12px;
   background: #FFF;
 }
-.difficulty .difficulty__box .difficulty__box_button {
+.difficulty__box_button {
   display: flex;
   width: 246px;
   height: 48px;
