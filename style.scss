@@ -5,7 +5,7 @@ $salad-60: #7AC100;
 
 @font-face {
     font-family: StratosSkyeng;
-    src: url(./statosskyeng-v1.001/Web\ fonts/stratosskyengweb-regular.woff2) format("woff2"), url(./statosskyeng-v1.001/Web\ fonts/stratosskyengweb-regular.woff) format("woff");
+    src: url(./fonts/stratosskyengweb-regular.woff2) format("woff2"), url(./fonts/stratosskyengweb-regular.woff) format("woff");
     font-weight: normal;
     font-style: normal;
     font-display: swap;
@@ -48,6 +48,7 @@ body{
             line-height: 48px;
             padding-top: 52px;
         }
+
 
         &_difficulst{
             display: flex;
@@ -99,4 +100,9 @@ body{
             line-height: 32px;
         }
     }
+}
+
+
+.difficulty__box_difficulst input[type="radio"] {
+    display: none;
 }
