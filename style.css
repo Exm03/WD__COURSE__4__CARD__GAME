@@ -62,6 +62,12 @@ body {
   line-height: 72px;
   border-radius: 12px;
   background: #FFF;
+  cursor: pointer;
+}
+.difficulty__box_choice:hover {
+  opacity: 0.8;
+  box-shadow: black 2px 1px;
+  transition: 0.3s;
 }
 .difficulty__box_button {
   display: flex;
@@ -80,8 +86,23 @@ body {
   font-size: 24px;
   font-family: StratosSkyeng;
   line-height: 32px;
+  cursor: pointer;
+}
+.difficulty__box_button:hover {
+  opacity: 0.7;
+  box-shadow: 3px 2px black;
+  transition: 0.3s;
+}
+.difficulty__box_button:disabled {
+  opacity: 0.3;
+  cursor: not-allowed;
 }
 
 .difficulty__box_difficulst input[type=radio] {
   display: none;
+}
+
+.difficulty__box_input:checked ~ label {
+  background-color: #004980;
+  color: #FFF;
 }/*# sourceMappingURL=style.css.map */
