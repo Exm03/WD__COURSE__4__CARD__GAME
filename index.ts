@@ -5,32 +5,41 @@ import { renderResult } from "./render";
 
 randerFirstPage();
 
+
+
 const gameCards : string[] = [];
 
 export let difficulty :string = "";
 
-let choiceInputs = document.querySelectorAll(".difficulty__box_input");
-let choiceButton = document.querySelector(".difficulty__box_button");
 
-for (let choiceInput of choiceInputs) {
-    choiceInput.addEventListener("click", function (e) {
-        if (!e.target) {
-            return
-        }
-        (difficulty = (e.target as HTMLInputElement).value), buttonDisabled(difficulty);
-    });
-}
 
-function buttonDisabled(difficulty) {
-    if (difficulty) {
-        choiceButton?.removeAttribute("disabled");
+export function checkClickInputs () {
+    let choiceInputs = document.querySelectorAll(".difficulty__box_input");
+    for (let choiceInput of choiceInputs) {
+        choiceInput.addEventListener("click", function (e) {
+            if (!e.target) {
+                return
+            }
+            (difficulty = (e.target as HTMLInputElement).value), buttonDisabled(difficulty);
+        });
     }
 }
 
-choiceButton?.addEventListener("click", function () {
-    let cardsForGame : any[] = cardsForRandom.slice();
-    imia(cardsForGame);
-});
+function buttonDisabled(difficulty) {
+    let choiceButton = document.querySelector(".difficulty__box_button");
+    if (difficulty) {
+        choiceButton?.removeAttribute("disabled");
+        listnerChoiseButton()
+    }
+}
+
+function listnerChoiseButton() {
+    let choiceButton = document.querySelector(".difficulty__box_button");
+    choiceButton?.addEventListener("click", function () {
+        let cardsForGame : any[] = cardsForRandom.slice();
+        imia(cardsForGame);
+    });
+}
 
 export function hideWhatTheCard() {
     const cards = document.querySelectorAll(".card");
@@ -77,6 +86,6 @@ function removeCards() {
 export function checkClick(button) {
     button.addEventListener("click", function () {
         let cardsForGame = cardsForRandom.slice();
-        imia(cardsForGame);
+        randerFirstPage()
     });
 }

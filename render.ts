@@ -4,6 +4,7 @@ import {
     ListnerClicksInGame,
     checkClick,
 } from "./index";
+import { checkClickInputs } from "./index";
 
 import image from "./static/image.png";
 import badImage from "./static/image (1).png";
@@ -66,6 +67,7 @@ export function randerFirstPage() {
             <button class="difficulty__box_button" disabled>Старт</button>
         </section>
     </main>`;
+checkClickInputs()
 }
 
 export function renderResult(result) {
