@@ -3,13 +3,16 @@ import {
     hideWhatTheCard,
     ListnerClicksInGame,
     checkClick,
-} from "./index.js";
+} from "./index";
 
 import image from "./static/image.png";
 import badImage from "./static/image (1).png";
 
 export function randerFirstPage() {
     const body = document.querySelector("body");
+    if (!body) {
+        return
+    }
     body.innerHTML = ` <main class="difficulty">
         <section class="difficulty__box">
             <p class="difficulty__box_text">
@@ -68,7 +71,10 @@ export function randerFirstPage() {
 export function renderResult(result) {
     const body = document.querySelector("body");
     const main = document.querySelector("main");
-    main.classList.add("blur");
+    main?.classList.add("blur");
+    if (!body) {
+        return
+    }
     body.innerHTML =
         body.innerHTML +
         `<div class="result">
@@ -89,8 +95,10 @@ export function renderResult(result) {
 }
 
 export function randerGameBoard(cardsForGame) {
-    console.log(`сложность ${difficulty}`);
     const body = document.querySelector("body");
+    if (!body) {
+        return
+    }
     body.innerHTML = `<main class="game">
     <header class="game__header">
         <div class="game__header_timer">
@@ -112,20 +120,17 @@ export function randerGameBoard(cardsForGame) {
     setTimeout(ListnerClicksInGame, 5000);
 }
 
-let cardsForGame = [];
+let cardsForGame : string[] = [];
 
 function perebor(cards, lengthArr) {
-    console.log(cards.length);
     const elem = Math.floor(Math.random() * lengthArr);
-    console.log(cards);
     cardsForGame.push(cards[elem]);
-    console.log(cards[elem]);
     cards.splice(elem, 1);
     return cardsForGame;
 }
 
 export function imia(cards) {
-    let lengthArr = "";
+    let lengthArr:number = 0;
     if (difficulty === "1") {
         lengthArr = 6;
     }
@@ -138,11 +143,9 @@ export function imia(cards) {
 
     for (let index = 0; index < lengthArr; index++) {
         perebor(cards, lengthArr);
-        let allCardsForGame = "";
+        let allCardsForGame : string[] = [];
         if (index === lengthArr - 1) {
-            console.log(cardsForGame);
             allCardsForGame = [...cardsForGame, ...cardsForGame];
-            console.log(allCardsForGame);
             randomize(allCardsForGame);
         }
     }

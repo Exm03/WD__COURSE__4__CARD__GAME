@@ -24,6 +24,7 @@
     },
     "homepage": "https://github.com/Exm03/WD__COURSE__4__CARD__GAME#readme",
     "devDependencies": {
+        "@babel/eslint-parser": "^7.22.7",
         "@typescript-eslint/eslint-plugin": "^5.61.0",
         "@typescript-eslint/parser": "^5.61.0",
         "copy-webpack-plugin": "^11.0.0",
@@ -38,6 +39,9 @@
         "stylelint-config-standard": "^34.0.0",
         "stylelint-config-standard-scss": "^10.0.0",
         "stylelint-prettier": "^3.0.0",
+        "ts-loader": "^9.4.4",
+        "typescript": "^5.1.6",
+        "typescript-eslint-parser": "^22.0.0",
         "webpack": "^5.88.1",
         "webpack-cli": "^5.1.4",
         "webpack-dev-server": "^4.15.1"
