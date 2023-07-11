@@ -4,15 +4,6 @@ import {
     ListnerClicksInGame,
     checkClick,
 } from "./index.js";
-import {
-    cardsForLightDiff,
-    cardsForMidDiff,
-    cardsForHardDiff,
-} from "./randomCards.js";
-
-console.log(cardsForLightDiff);
-console.log(cardsForMidDiff);
-console.log(cardsForHardDiff);
 
 export function randerFirstPage() {
     const body = document.querySelector("body");
@@ -71,7 +62,7 @@ export function randerFirstPage() {
 </main>`;
 }
 
-export function randerGameBoard() {
+export function randerGameBoard(cardsForGame) {
     console.log(`сложность ${difficulty}`);
     const body = document.querySelector("body");
     body.innerHTML = `<main class="game">
@@ -95,25 +86,44 @@ export function randerGameBoard() {
     setTimeout(ListnerClicksInGame, 5000);
 }
 
-let cardsForGame = "";
+let cardsForGame = [];
 
-function perebor(cards) {
+function perebor(cards, lengthArr) {
     console.log(cards.length);
-    const elem = Math.floor(Math.random() * cards.length);
-    cardsForGame = cardsForGame + cards[elem];
+    const elem = Math.floor(Math.random() * lengthArr);
+    console.log(cards);
+    cardsForGame.push(cards[elem]);
     console.log(cards[elem]);
     cards.splice(elem, 1);
     return cardsForGame;
 }
 
 export function imia(cards) {
-    cardsForGame = "";
-    const length = cards.length;
-    console.log(cards.length);
-    for (let index = 0; index < length; index++) {
-        perebor(cards);
-        if (index === length - 1) {
-            randerGameBoard();
+    let lengthArr = "";
+    if (difficulty === "1") {
+        lengthArr = 6;
+    }
+    if (difficulty === "2") {
+        lengthArr = 12;
+    }
+    if (difficulty === "3") {
+        lengthArr = 18;
+    }
+
+    for (let index = 0; index < lengthArr; index++) {
+        perebor(cards, lengthArr);
+        let allCardsForGame = "";
+        if (index === lengthArr - 1) {
+            console.log(cardsForGame);
+            allCardsForGame = [...cardsForGame, ...cardsForGame];
+            console.log(allCardsForGame);
+            randomize(allCardsForGame);
         }
     }
+}
+
+function randomize(array) {
+    array.sort(() => Math.random() - 0.5);
+    randerGameBoard(array.join(" "));
+    cardsForGame = [];
 }
